@@ -59,25 +59,30 @@ function addSmoothTransitions() {
 }
 
 function handleResponsiveFeatures() {
-    // Handle responsive text sizing
+    // Simplified responsive handling - maintain design consistency
     function adjustTextSize() {
         const testimonialText = document.querySelector('.testimonial-text');
+        const authorName = document.querySelector('.author-name');
+        const authorHandle = document.querySelector('.author-handle');
+        
         if (!testimonialText) return;
 
         const screenWidth = window.innerWidth;
         
-        if (screenWidth < 768) {
-            // Mobile adjustments
+        // Keep consistent sizing across all devices to match design
+        if (testimonialText) {
             testimonialText.style.fontSize = '14px';
-            testimonialText.style.lineHeight = '1.6';
-        } else if (screenWidth < 1024) {
-            // Tablet adjustments
-            testimonialText.style.fontSize = '16px';
             testimonialText.style.lineHeight = '1.5';
-        } else {
-            // Desktop adjustments
-            testimonialText.style.fontSize = '18px';
-            testimonialText.style.lineHeight = '1.6';
+        }
+        
+        if (authorName) {
+            authorName.style.fontSize = '14px';
+            authorName.style.lineHeight = '1.4';
+        }
+        
+        if (authorHandle) {
+            authorHandle.style.fontSize = '12px';
+            authorHandle.style.lineHeight = '1.4';
         }
     }
 

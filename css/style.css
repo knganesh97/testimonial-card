@@ -19,24 +19,26 @@ body {
 /* Style Guide Consistent Colors */
 .testimonial-card {
   border: 1px solid #E5E7EB;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .author-name {
   color: #171717 !important;
-  font-size: 16px !important;
-  font-weight: 600;
-  line-height: 1.5;
+  font-size: 14px !important;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .author-handle {
   color: #525252 !important;
-  font-size: 14px !important;
-  line-height: 1.5;
+  font-size: 12px !important;
+  line-height: 1.4;
 }
 
 .testimonial-text {
   color: #525252 !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   line-height: 1.5;
 }
 
