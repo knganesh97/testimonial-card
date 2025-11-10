@@ -16,6 +16,30 @@ body {
   box-sizing: border-box;
 }
 
+/* Style Guide Consistent Colors */
+.testimonial-card {
+  border: 1px solid #E5E7EB;
+}
+
+.author-name {
+  color: #171717 !important;
+  font-size: 16px !important;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.author-handle {
+  color: #525252 !important;
+  font-size: 14px !important;
+  line-height: 1.5;
+}
+
+.testimonial-text {
+  color: #525252 !important;
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
 .credits {
   color: #777;
   position: fixed;
