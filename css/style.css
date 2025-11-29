@@ -1,47 +1,123 @@
-/* Put any custom CSS styles here.  */
-/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
-body {
-  margin: 0;
-  font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-  min-height: 100vh;
+/* Design Tokens from Figma */
+:root {
+  /* Colors */
+  --color-primary-text: #171717;
+  --color-secondary-text: #525252;
+  --color-bg-primary: #ffffff;
+  --color-bg-page: #F9FAFB;
+  
+  /* Typography */
+  --font-family: "Noto Sans", system-ui, -apple-system, sans-serif;
+  --font-size-lg: 18px;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --line-height-lg: 28px;
+  --line-height-base: 24px;
+  --line-height-sm: 20px;
+  --font-weight-semibold: 600;
+  --font-weight-normal: 400;
+  
+  /* Spacing */
+  --gap-1: 1px;
+  --gap-4: 16px;
+  --padding-6: 24px;
+  
+  /* Border Radius */
+  --border-radius-lg: 8px;
+  --border-radius-full: 48px;
+  
+  /* Shadows */
+  --shadow-card: 
+    0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-* {
-  box-sizing: border-box;
+/* Layout Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
 
-/* Style Guide Consistent Colors */
-.testimonial-card {
-  border: 1px solid #E5E7EB;
-  max-width: 320px;
-  margin: 0 auto;
+/* Card Component */
+.card {
+  background-color: var(--color-bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--padding-6);
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
 }
 
-.author-name {
-  color: #171717 !important;
-  font-size: 14px !important;
-  font-weight: 500;
-  line-height: 1.4;
+/* Profile Component */
+.card__profile {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-4);
+  width: 100%;
 }
 
-.author-handle {
-  color: #525252 !important;
-  font-size: 12px !important;
-  line-height: 1.4;
+.card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-.testimonial-text {
-  color: #525252 !important;
-  font-size: 14px !important;
-  line-height: 1.5;
+.card__profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-1);
+  flex: 1;
+  min-width: 0;
 }
 
+.card__author-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-lg);
+  color: var(--color-primary-text);
+  text-align: justify;
+}
+
+.card__author-handle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-sm);
+  color: var(--color-secondary-text);
+}
+
+/* Testimonial Text Component */
+.card__testimonial {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  color: var(--color-secondary-text);
+  white-space: pre-wrap;
+}
+
+/* Credits */
 .credits {
   color: #777;
   position: fixed;

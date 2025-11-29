@@ -13,34 +13,29 @@
     />
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Tailwind CDN allows you to use Tailwind classes immediately in your HTML without any installation steps. 
-      If you're not using Tailwind, you may delete the <script> -->
-    <!-- Get started on Tailwind: https://tailwindcss.com/docs/installation/play-cdn -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="icon" href="img/favicon.ico" sizes="any" />
-    <style>
-      /* You may write styles inside this <style> tag or within `css/style.css`. */
-    </style>
   </head>
   <body>
-    <!-- Add your site or application content here -->
-    <div class="min-h-screen flex items-center justify-center p-4" style="background-color: #F9FAFB;">
-      <div class="testimonial-card rounded-lg p-6 w-full max-w-sm" style="background-color: #FFFFFF; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-        <div class="flex items-center mb-4">
-          <img src="img/profile-thumbnail.png" 
-               alt="Profile picture of Sarah Dole" 
-               class="profile-image w-12 h-12 rounded-full object-cover mr-3">
-          <div class="author-info">
-            <h3 class="author-name font-medium" style="color: #171717; font-size: 14px; line-height: 1.5; margin: 0;">Sarah Dole</h3>
-            <p class="author-handle" style="color: #525252; font-size: 12px; line-height: 1.5; margin: 0;">@sarahdole</p>
+    <!-- Container -->
+    <div class="container">
+      <!-- Testimonial Card Component -->
+      <article class="card" role="article" aria-label="Customer testimonial">
+        <!-- Profile Component -->
+        <div class="card__profile">
+          <img 
+            src="img/profile-thumbnail.png" 
+            alt="Profile picture of Sarah Dole" 
+            class="card__avatar"
+          >
+          <div class="card__profile-info">
+            <h3 class="card__author-name">Sarah Dole</h3>
+            <p class="card__author-handle">@sarahdole</p>
           </div>
         </div>
-        <p class="testimonial-text" style="color: #525252; font-size: 14px; line-height: 1.5; margin: 0;">
-          I've been searching for high-quality abstract images for my design projects, 
-          and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!
-        </p>
-      </div>
+        
+        <!-- Testimonial Text Component -->
+        <p class="card__testimonial">I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!</p>
+      </article>
     </div>
 
     <!-- Attribute this challenge to yourself! -->

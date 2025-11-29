@@ -1,157 +1,72 @@
 // Testimonial Card JavaScript
-// This file adds interactivity to the testimonial card
+// This file adds subtle interactivity to the testimonial card
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize testimonial card functionality
     initTestimonialCard();
 });
 
 function initTestimonialCard() {
-    // Get testimonial elements
-    const testimonialCard = document.querySelector('.testimonial-card');
-    const profileImage = document.querySelector('.profile-image');
-    const testimonialText = document.querySelector('.testimonial-text');
-    const authorName = document.querySelector('.author-name');
-    const authorHandle = document.querySelector('.author-handle');
+    const card = document.querySelector('.card');
+    const avatar = document.querySelector('.card__avatar');
 
-    // Add hover effects to the testimonial card
-    if (testimonialCard) {
-        testimonialCard.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-        });
-
-        testimonialCard.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-        });
+    // Add smooth hover effect to card
+    if (card) {
+        addCardHoverEffect(card);
     }
 
-    // Add smooth transitions to all interactive elements
-    addSmoothTransitions();
+    // Add subtle avatar hover effect
+    if (avatar) {
+        addAvatarHoverEffect(avatar);
+    }
 
-    // Handle responsive behavior
-    handleResponsiveFeatures();
-
-    // Add accessibility enhancements
+    // Enhance accessibility
     enhanceAccessibility();
 }
 
-function addSmoothTransitions() {
-    const testimonialCard = document.querySelector('.testimonial-card');
-    if (testimonialCard) {
-        testimonialCard.style.transition = 'all 0.3s ease';
-    }
+function addCardHoverEffect(card) {
+    card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
 
-    // Add transitions to profile image
-    const profileImage = document.querySelector('.profile-image');
-    if (profileImage) {
-        profileImage.style.transition = 'transform 0.3s ease';
-        
-        profileImage.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-        });
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.1)';
+    });
 
-        profileImage.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    }
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = 'var(--shadow-card)';
+    });
 }
 
-function handleResponsiveFeatures() {
-    // Simplified responsive handling - maintain design consistency
-    function adjustTextSize() {
-        const testimonialText = document.querySelector('.testimonial-text');
-        const authorName = document.querySelector('.author-name');
-        const authorHandle = document.querySelector('.author-handle');
-        
-        if (!testimonialText) return;
+function addAvatarHoverEffect(avatar) {
+    avatar.style.transition = 'transform 0.3s ease';
 
-        const screenWidth = window.innerWidth;
-        
-        // Keep consistent sizing across all devices to match design
-        if (testimonialText) {
-            testimonialText.style.fontSize = '14px';
-            testimonialText.style.lineHeight = '1.5';
-        }
-        
-        if (authorName) {
-            authorName.style.fontSize = '14px';
-            authorName.style.lineHeight = '1.4';
-        }
-        
-        if (authorHandle) {
-            authorHandle.style.fontSize = '12px';
-            authorHandle.style.lineHeight = '1.4';
-        }
-    }
+    avatar.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
 
-    // Initial adjustment
-    adjustTextSize();
-
-    // Adjust on resize
-    window.addEventListener('resize', adjustTextSize);
+    avatar.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
 }
 
 function enhanceAccessibility() {
-    const testimonialCard = document.querySelector('.testimonial-card');
-    if (testimonialCard) {
-        // Add ARIA labels and roles
-        testimonialCard.setAttribute('role', 'article');
-        testimonialCard.setAttribute('aria-label', 'Customer testimonial');
-        
+    const card = document.querySelector('.card');
+    
+    if (card) {
         // Add keyboard navigation support
-        testimonialCard.setAttribute('tabindex', '0');
+        card.setAttribute('tabindex', '0');
         
-        testimonialCard.addEventListener('keydown', function(e) {
+        card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                this.click();
+                // Could trigger an action here if needed
             }
         });
     }
-
-    // Enhance profile image accessibility
-    const profileImage = document.querySelector('.profile-image');
-    if (profileImage) {
-        profileImage.setAttribute('alt', 'Profile picture of testimonial author');
-    }
 }
 
-// Utility function to animate text reveal
-function animateTextReveal(element, delay = 0) {
-    if (!element) return;
-    
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'all 0.6s ease';
-    
-    setTimeout(() => {
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-    }, delay);
-}
-
-// Function to handle card loading animation
-function animateCardLoad() {
-    const testimonialCard = document.querySelector('.testimonial-card');
-    const profileImage = document.querySelector('.profile-image');
-    const testimonialText = document.querySelector('.testimonial-text');
-    const authorInfo = document.querySelector('.author-info');
-
-    // Animate elements in sequence
-    setTimeout(() => animateTextReveal(testimonialCard), 100);
-    setTimeout(() => animateTextReveal(profileImage), 300);
-    setTimeout(() => animateTextReveal(testimonialText), 500);
-    setTimeout(() => animateTextReveal(authorInfo), 700);
-}
-
-// Call animation on load
-window.addEventListener('load', animateCardLoad);
-
-// Handle prefers-reduced-motion for accessibility
+// Respect user's motion preferences
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    // Disable animations for users who prefer reduced motion
     const style = document.createElement('style');
     style.textContent = `
         *, *::before, *::after {
