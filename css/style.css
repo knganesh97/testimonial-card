@@ -41,7 +41,7 @@
 body {
   font-family: var(--font-family);
   min-height: 100vh;
-  background-color: var(--color-bg-page);
+  background: linear-gradient(135deg, #F9FAFB 0%, #D2D6DB 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
