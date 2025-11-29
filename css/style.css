@@ -51,9 +51,21 @@ body {
 .container {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 16px;
+  padding: 200px 16px 16px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 200px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding-top: 200px;
+  }
 }
 
 /* Card Component */
